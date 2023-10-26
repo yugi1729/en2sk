@@ -54,9 +54,9 @@ def get_values(json, key, count, entity_code):
 def main():
     requests.packages.urllib3.disable_warnings()
     
-    if len(sys.argv) < 4:
-        print("Usage: python script.py <count> <word> <exact>")
-        sys.exit(1)
+    # if len(sys.argv) < 4:
+    #     print("Usage: python script.py <count> <word> <exact>")
+    #     sys.exit(1)
 
     count = sys.argv[1]
     count = int(count)
@@ -66,7 +66,7 @@ def main():
     except:
         exact = 'false'
         
-    URL = 'https://www.learnsanskrit.cc/getdata/word/gettranslation?word=lion&direction=au&count=0&exact=false'
+URL = 'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&{count}=0&exact=false'
 
     # URL = f'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&count=0&exact={exact}'
     json_resp = get_json(URL)
@@ -77,7 +77,7 @@ def main():
     en_words = get_values(json_resp, 'en_word', count, entity_code=False)
     en_adds = get_values(json_resp, 'en_add', count, entity_code=False)
     
-    if dv_words:
+    if dv_words or iast_words or sk_grammar or en_words:
         print_tabular(dv_words, sk_grammar, iast_words, en_words, en_adds)
     else:
         print("No matching results found for the given word.")
