@@ -66,7 +66,7 @@ def main():
     except:
         exact = 'false'
         
-    URL = 'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&{count}=0&exact=false'
+    URL = f'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&count=0&exact=false'
 
     # URL = f'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&count=0&exact={exact}'
     json_resp = get_json(URL)
