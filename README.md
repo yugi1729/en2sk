@@ -10,4 +10,3 @@ a simple python cli script to get equivalent sanskrit words for english words.
 |  गणकयन्त्र   |    n.   |   gaṇakayantra  | computer |         |
 |  सङ्गणित्र    |    n.   |    saṅgaṇitra   | computer |         |
 +-----------+---------+-----------------+----------+---------+
-
