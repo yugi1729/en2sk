@@ -12,6 +12,6 @@ a simple python cli script to get equivalent sanskrit words for english words.
 ## Install on Unix-like Systems
 - Clone the repo `git clone https://github.com/yugi1729/en2sk.git`
 - Change directory to en2sk `cd en2sk`
-- make scripts executable `chmod +x runscript.py; chmod +x en2sk.py`
+- make scripts executable `chmod +x en2sk.py; chmod +x run_en2sk`
 - Optional step : copy program to /usr/bin `sudo cp run_en2sk /usr/bin/`
 - Run `run_en2sk`
