@@ -53,6 +53,11 @@ def get_values(json, key, count, entity_code):
 
 def main():
     requests.packages.urllib3.disable_warnings()
+    
+    if len(sys.argv) < 4:
+        print("Usage: python script.py <count> <word> <exact>")
+        sys.exit(1)
+
     count = sys.argv[1]
     count = int(count)
     word = sys.argv[2]
@@ -71,7 +76,10 @@ def main():
     sk_grammar = get_values(json_resp, 'sk_grammar', count, entity_code=False)
     en_words = get_values(json_resp, 'en_word', count, entity_code=False)
     en_adds = get_values(json_resp, 'en_add', count, entity_code=False)
-    print_tabular(dv_words, sk_grammar, iast_words, en_words, en_adds)
-
+    
+    if dv_words:
+        print_tabular(dv_words, sk_grammar, iast_words, en_words, en_adds)
+    else:
+        print("No matching results found for the given word.")
 if __name__ == "__main__":
     main()
