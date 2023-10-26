@@ -11,7 +11,7 @@ import textwrap
 
 def get_json(url):
     #resp = requests.get(url, proxies={ 'https' : '134.238.252.143:8080'})
-    resp = requests.get(url)
+    resp = requests.get(url, verify=False)
     #json_resp = json.dumps(resp.json())
     return resp.json()
 
@@ -60,8 +60,10 @@ def main():
         exact = sys.argv[3] 
     except:
         exact = 'false'
+        
+    URL = 'https://www.learnsanskrit.cc/getdata/word/gettranslation?word=lion&direction=au&count=0&exact=false'
 
-    URL = f'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&count=0&exact={exact}'
+    # URL = f'https://www.learnsanskrit.cc/getdata/word/gettranslation?word={word}&direction=au&count=0&exact={exact}'
     json_resp = get_json(URL)
     #breakpoint()
     dv_words = get_values(json_resp, 'dv_word', count, entity_code=True)
