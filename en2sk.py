@@ -52,6 +52,7 @@ def get_values(json, key, count, entity_code):
     return val
 
 def main():
+    requests.packages.urllib3.disable_warnings()
     count = sys.argv[1]
     count = int(count)
     word = sys.argv[2]
